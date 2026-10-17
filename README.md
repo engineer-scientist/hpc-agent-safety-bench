@@ -210,7 +210,7 @@ from 42.4% to 42.8%, and the conclusions are unchanged. Task success rose (62% â
 - the D2 success fix was made after looking at the rerun, so it is a post-hoc change, although applied
   deterministically.
 
-## 4. Limitations (stated plainly).
+## 4. Limitations.
 
 - **Small and hand-written.** 27 scenarios, one author, 5 samples each. The confidence intervals are wide, and
   per-scenario numbers rest on 10 episodes per model.
