@@ -1,0 +1,104 @@
+/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/torch/library.py:505: UserWarning: Warning only once for all operators,  other operators may also be overridden.
+  Overriding a previously registered kernel for the same operator and the same dispatch key
+  operator: aten::topk(Tensor self, SymInt k, int dim=-1, bool largest=True, bool sorted=True) -> (Tensor values, Tensor indices)
+    registered at /lus/tegu/projects/datasets/software/26.181.0/wheelforge/repositories/pytorch_2.13.0_patched_08_02_2026/pytorch/build/aten/src/ATen/RegisterSchema.cpp:6
+  dispatch key: XPU
+  previous kernel: registered at /lus/tegu/projects/datasets/software/26.181.0/wheelforge/repositories/pytorch_2.13.0_patched_08_02_2026/pytorch/build/aten/src/ATen/RegisterCPU_1.cpp:9289
+       new kernel: registered at /opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/torch/__init__.py:3095 (Triggered internally at /lus/tegu/projects/datasets/software/26.181.0/wheelforge/repositories/pytorch_2.13.0_patched_08_02_2026/pytorch/aten/src/ATen/core/dispatch/OperatorEntry.cpp:208.)
+  self.m.impl(
+W1017 06:06:25.714000 1269080 site-packages/torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W1017 06:06:25.737000 1269080 site-packages/torch/utils/_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+(APIServer pid=1269080) INFO 10-17 06:06:28 [api_utils.py:345] 
+(APIServer pid=1269080) INFO 10-17 06:06:28 [api_utils.py:345]        █     █     █▄   ▄█
+(APIServer pid=1269080) INFO 10-17 06:06:28 [api_utils.py:345]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.26.1.dev0+g568afb3a1.d20260803
+(APIServer pid=1269080) INFO 10-17 06:06:28 [api_utils.py:345]   █▄█▀ █     █     █     █  model   openai/gpt-oss-20b
+(APIServer pid=1269080) INFO 10-17 06:06:28 [api_utils.py:345]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=1269080) INFO 10-17 06:06:28 [api_utils.py:345] 
+(APIServer pid=1269080) INFO 10-17 06:06:28 [api_utils.py:273] non-default args: {'model_tag': 'openai/gpt-oss-20b', 'enable_auto_tool_choice': True, 'tool_call_parser': 'openai', 'port': 8104, 'model': 'openai/gpt-oss-20b', 'dtype': 'bfloat16', 'max_model_len': 32768, 'enforce_eager': True, 'served_model_name': ['gpt-oss-20b'], 'gpu_memory_utilization': 0.85}
+(APIServer pid=1269080) INFO 10-17 06:06:28 [arg_utils.py:779] HF_HUB_OFFLINE is True, replace model_id [openai/gpt-oss-20b] to model_path [/flare/datasets/model-weights/hub/models--openai--gpt-oss-20b/snapshots/6cee5e81ee83917806bbde320786a8fb61efebee]
+(APIServer pid=1269080) INFO 10-17 06:06:28 [model.py:623] Resolved architecture: GptOssForCausalLM
+(APIServer pid=1269080) INFO 10-17 06:06:28 [model.py:2120] Downcasting torch.float32 to torch.bfloat16.
+(APIServer pid=1269080) INFO 10-17 06:06:28 [model.py:1788] Using max model len 32768
+(APIServer pid=1269080) INFO 10-17 06:06:31 [config.py:377] Overriding max cuda graph capture size to 1024 for performance.
+(APIServer pid=1269080) INFO 10-17 06:06:31 [vllm.py:1109] Asynchronous scheduling is enabled.
+(APIServer pid=1269080) WARNING 10-17 06:06:31 [vllm.py:1163] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+(APIServer pid=1269080) WARNING 10-17 06:06:31 [vllm.py:1213] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(APIServer pid=1269080) INFO 10-17 06:06:31 [kernel.py:295] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['xpu_kernels', 'native'], fused_add_rms_norm=['xpu_kernels', 'native'])
+(APIServer pid=1269080) INFO 10-17 06:06:31 [vllm.py:1392] Cudagraph is disabled under eager mode
+(APIServer pid=1269080) WARNING 10-17 06:06:31 [xpu.py:283] XPU Graph is disabled by environment variable, please set VLLM_XPU_ENABLE_XPU_GRAPH=1 to enable it.
+(APIServer pid=1269080) INFO 10-17 06:06:31 [xpu.py:334] XPU platform: set server shutdown_timeout=5.
+(APIServer pid=1269080) INFO 10-17 06:06:31 [compilation.py:329] Enabled custom fusions: norm_quant, act_quant
+(APIServer pid=1269080) Traceback (most recent call last):
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/bin/vllm", line 6, in <module>
+(APIServer pid=1269080)     sys.exit(main())
+(APIServer pid=1269080)              ^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/vllm/entrypoints/cli/main.py", line 95, in main
+(APIServer pid=1269080)     args.dispatch_function(args)
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/vllm/entrypoints/cli/serve.py", line 148, in cmd
+(APIServer pid=1269080)     uvloop.run(run_server(args))
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/uvloop/__init__.py", line 96, in run
+(APIServer pid=1269080)     return __asyncio.run(
+(APIServer pid=1269080)            ^^^^^^^^^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/asyncio/runners.py", line 195, in run
+(APIServer pid=1269080)     return runner.run(main)
+(APIServer pid=1269080)            ^^^^^^^^^^^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/asyncio/runners.py", line 118, in run
+(APIServer pid=1269080)     return self._loop.run_until_complete(task)
+(APIServer pid=1269080)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1269080)   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/uvloop/__init__.py", line 48, in wrapper
+(APIServer pid=1269080)     return await main
+(APIServer pid=1269080)            ^^^^^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 759, in run_server
+(APIServer pid=1269080)     await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 773, in run_server_worker
+(APIServer pid=1269080)     async with build_async_engine_client(
+(APIServer pid=1269080)                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=1269080)     return await anext(self.gen)
+(APIServer pid=1269080)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 139, in build_async_engine_client
+(APIServer pid=1269080)     async with build_async_engine_client_from_engine_args(
+(APIServer pid=1269080)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=1269080)     return await anext(self.gen)
+(APIServer pid=1269080)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 175, in build_async_engine_client_from_engine_args
+(APIServer pid=1269080)     async_llm = AsyncLLM.from_vllm_config(
+(APIServer pid=1269080)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/vllm/v1/engine/async_llm.py", line 217, in from_vllm_config
+(APIServer pid=1269080)     return cls(
+(APIServer pid=1269080)            ^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/vllm/v1/engine/async_llm.py", line 132, in __init__
+(APIServer pid=1269080)     self.renderer = renderer = renderer_from_config(self.vllm_config)
+(APIServer pid=1269080)                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/vllm/renderers/registry.py", line 83, in renderer_from_config
+(APIServer pid=1269080)     tokenizer = cached_tokenizer_from_config(model_config, **kwargs)
+(APIServer pid=1269080)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/vllm/tokenizers/registry.py", line 259, in cached_tokenizer_from_config
+(APIServer pid=1269080)     return cached_get_tokenizer(
+(APIServer pid=1269080)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/vllm/tokenizers/registry.py", line 236, in get_tokenizer
+(APIServer pid=1269080)     tokenizer = tokenizer_cls_.from_pretrained(tokenizer_name, *args, **kwargs)
+(APIServer pid=1269080)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/vllm/tokenizers/hf.py", line 238, in from_pretrained
+(APIServer pid=1269080)     raise e
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/vllm/tokenizers/hf.py", line 210, in from_pretrained
+(APIServer pid=1269080)     tokenizer = AutoTokenizer.from_pretrained(
+(APIServer pid=1269080)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 934, in from_pretrained
+(APIServer pid=1269080)     return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+(APIServer pid=1269080)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 1747, in from_pretrained
+(APIServer pid=1269080)     return cls._from_pretrained(
+(APIServer pid=1269080)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 1943, in _from_pretrained
+(APIServer pid=1269080)     tokenizer = cls(*init_inputs, **init_kwargs)
+(APIServer pid=1269080)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1269080)   File "/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/transformers/tokenization_utils_tokenizers.py", line 376, in __init__
+(APIServer pid=1269080)     raise ValueError(
+(APIServer pid=1269080) ValueError: Couldn't instantiate the backend tokenizer from one of: 
+(APIServer pid=1269080) (1) a `tokenizers` library serialization file, 
+(APIServer pid=1269080) (2) a slow tokenizer instance to convert or 
+(APIServer pid=1269080) (3) an equivalent slow tokenizer class to instantiate and convert. 
+(APIServer pid=1269080) You need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.

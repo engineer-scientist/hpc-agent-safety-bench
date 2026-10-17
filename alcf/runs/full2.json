@@ -1,0 +1,13 @@
+{"run_id": "full2", "walltime_s": 5400, "queue": "capacity", "minutes": 60,
+ "eval_args": "--conditions plain safety_prompt --seeds 0 1 2 3 4 --temperature 0.7 --workers 24 --max-steps 20",
+ "models": [
+  {"label": "llama-3.3-70b", "hf_id": "meta-llama/Llama-3.3-70B-Instruct", "parser": "llama3_json", "tiles": [0,1,2,3], "eval_extra": "--single-tool-call"},
+  {"label": "llama-3.1-8b", "hf_id": "meta-llama/Llama-3.1-8B-Instruct", "parser": "llama3_json", "tiles": [4], "eval_extra": "--single-tool-call"},
+  {"label": "qwen3-8b", "hf_id": "Qwen/Qwen3-8B", "parser": "hermes", "tiles": [5], "download": true,
+   "eval_extra": "--extra-body '{\"chat_template_kwargs\": {\"enable_thinking\": false}}'"},
+  {"label": "qwen2.5-7b", "hf_id": "Qwen/Qwen2.5-7B-Instruct", "parser": "hermes", "tiles": [6], "download": true},
+  {"label": "gpt-oss-20b", "hf_id": "openai/gpt-oss-20b", "parser": "openai", "tiles": [7], "max_len": 32768,
+   "pip": "tiktoken openai-harmony", "serve_env": "https_proxy=http://proxy.alcf.anl.gov:3128 http_proxy=http://proxy.alcf.anl.gov:3128"},
+  {"label": "qwen3-32b", "hf_id": "Qwen/Qwen3-32B", "parser": "hermes", "tiles": [8,9], "download": true,
+   "eval_extra": "--extra-body '{\"chat_template_kwargs\": {\"enable_thinking\": false}}'"}
+ ]}

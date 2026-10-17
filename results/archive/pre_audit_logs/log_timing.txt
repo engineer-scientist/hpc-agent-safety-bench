@@ -1,0 +1,15 @@
+start 1792218467 x4616c4s1b0n0
+downloaded_qwen3-8b 0 1792218472
+downloaded_qwen3-32b 0 1792218472
+downloaded_qwen2.5-7b 0 1792218472
+ready_qwen3-8b 1792218543
+ready_llama-3.1-8b 1792218543
+ready_qwen2.5-7b 1792218543
+ready_qwen3-32b 1792218583
+ready_llama-3.3-70b 1792218603
+done_qwen2.5-7b 0 1792218686
+done_qwen3-8b 0 1792218693
+done_llama-3.1-8b 0 1792218754
+done_llama-3.3-70b 0 1792218789
+done_qwen3-32b 0 1792218938
+end 1792218938

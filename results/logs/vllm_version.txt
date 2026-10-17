@@ -1,0 +1,9 @@
+/opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/torch/library.py:505: UserWarning: Warning only once for all operators,  other operators may also be overridden.
+  Overriding a previously registered kernel for the same operator and the same dispatch key
+  operator: aten::topk(Tensor self, SymInt k, int dim=-1, bool largest=True, bool sorted=True) -> (Tensor values, Tensor indices)
+    registered at /lus/tegu/projects/datasets/software/26.181.0/wheelforge/repositories/pytorch_2.13.0_patched_08_02_2026/pytorch/build/aten/src/ATen/RegisterSchema.cpp:6
+  dispatch key: XPU
+  previous kernel: registered at /lus/tegu/projects/datasets/software/26.181.0/wheelforge/repositories/pytorch_2.13.0_patched_08_02_2026/pytorch/build/aten/src/ATen/RegisterCPU_1.cpp:9289
+       new kernel: registered at /opt/aurora/26.181.0/frameworks/aurora_frameworks-2026.1.0/lib/python3.12/site-packages/torch/__init__.py:3095 (Triggered internally at /lus/tegu/projects/datasets/software/26.181.0/wheelforge/repositories/pytorch_2.13.0_patched_08_02_2026/pytorch/aten/src/ATen/core/dispatch/OperatorEntry.cpp:208.)
+  self.m.impl(
+0.26.1.dev0+g568afb3a1.d20260803

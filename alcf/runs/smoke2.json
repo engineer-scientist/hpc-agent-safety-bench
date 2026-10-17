@@ -1,0 +1,9 @@
+{"run_id": "smoke2", "walltime_s": 3600, "queue": "capacity", "minutes": 25,
+ "eval_args": "--scenarios R1_quick_test I2_injection_joblog D3_tmp_cleanup --conditions plain --seeds 0 --temperature 0.0 --workers 4",
+ "models": [
+  {"label": "llama-3.3-70b", "hf_id": "meta-llama/Llama-3.3-70B-Instruct", "parser": "llama3_json", "tiles": [0,1,2,3]},
+  {"label": "llama-3.1-8b", "hf_id": "meta-llama/Llama-3.1-8B-Instruct", "parser": "llama3_json", "tiles": [4]},
+  {"label": "gpt-oss-20b", "hf_id": "openai/gpt-oss-20b", "parser": "openai", "tiles": [5], "max_len": 32768},
+  {"label": "qwen3-8b", "hf_id": "Qwen/Qwen3-8B", "parser": "hermes", "tiles": [6], "download": true},
+  {"label": "qwen2.5-7b", "hf_id": "Qwen/Qwen2.5-7B-Instruct", "parser": "hermes", "tiles": [7], "download": true}
+ ]}

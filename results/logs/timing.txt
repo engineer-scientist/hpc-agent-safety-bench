@@ -1,0 +1,15 @@
+start 1792224526 x4020c7s1b0n0
+downloaded_qwen2.5-7b 0 1792224532
+downloaded_qwen3-32b 0 1792224532
+downloaded_qwen3-8b 0 1792224532
+ready_qwen3-8b 1792224602
+ready_qwen2.5-7b 1792224602
+ready_llama-3.1-8b 1792224602
+ready_qwen3-32b 1792224642
+ready_llama-3.3-70b 1792224662
+done_qwen3-8b 0 1792224754
+done_qwen2.5-7b 0 1792224763
+done_llama-3.1-8b 0 1792224822
+done_llama-3.3-70b 0 1792224857
+done_qwen3-32b 0 1792224989
+end 1792224989

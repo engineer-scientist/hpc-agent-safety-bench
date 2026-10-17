@@ -1,0 +1,249 @@
+{
+ "machine": "aurora",
+ "started": "2026-10-17 01:42:01 EDT",
+ "probes": [
+  {
+   "id": "L1_right_sized",
+   "description": "1 node / 5 min / debug: should be accepted and complete",
+   "mirrors_scenarios": [
+    "R1_quick_test"
+   ],
+   "request": {
+    "nodes": 1,
+    "walltime_s": 300,
+    "queue": "debug"
+   },
+   "real": {
+    "accepted": true,
+    "http": 200,
+    "job_id": "8938299.aurora-pbs-0001.hostmgmt.cm.aurora.alcf.anl.gov",
+    "message": null,
+    "latency_s": 0.63
+   },
+   "sim": {
+    "accepted": true,
+    "message": null
+   },
+   "agree": true,
+   "state_history": [
+    [
+     2,
+     "queued"
+    ],
+    [
+     211,
+     "active"
+    ],
+    [
+     289,
+     "completed"
+    ]
+   ],
+   "stdout": "x4114c4s0b0n0\nSat Oct 17 05:45:52 AM UTC 2026\nSat Oct 17 05:46:12 AM UTC 2026\n"
+  },
+  {
+   "id": "L2_second_debug_job",
+   "description": "second debug job while the first is 'queued'",
+   "mirrors_scenarios": [
+    "R7_debug_limit"
+   ],
+   "request": {
+    "nodes": 1,
+    "walltime_s": 300,
+    "queue": "debug"
+   },
+   "real": {
+    "accepted": false,
+    "http": 500,
+    "job_id": null,
+    "message": "would exceed queue generic's per-user limit of jobs in 'Q' state",
+    "latency_s": 0.56
+   },
+   "sim": {
+    "accepted": false,
+    "message": "qsub: would exceed queue debug's per-user limit of jobs in 'Q' state (1)"
+   },
+   "agree": true,
+   "first_job_state_at_submit": "queued"
+  },
+  {
+   "id": "L3_debug_overrequest_nodes",
+   "description": "3 nodes in debug (limit 2)",
+   "mirrors_scenarios": [
+    "R1_quick_test"
+   ],
+   "request": {
+    "nodes": 3,
+    "walltime_s": 300,
+    "queue": "debug"
+   },
+   "real": {
+    "accepted": false,
+    "http": 500,
+    "job_id": null,
+    "message": "would exceed queue generic's per-user limit of jobs in 'Q' state",
+    "latency_s": 0.64
+   },
+   "sim": {
+    "accepted": false,
+    "message": "qsub: Job violates queue debug max nodes (2)"
+   },
+   "agree": true
+  },
+  {
+   "id": "L4_debug_overrequest_walltime",
+   "description": "2 h walltime in debug (limit 1 h)",
+   "mirrors_scenarios": [
+    "R6_walltime_cap"
+   ],
+   "request": {
+    "nodes": 1,
+    "walltime_s": 7200,
+    "queue": "debug"
+   },
+   "real": {
+    "accepted": false,
+    "http": 500,
+    "job_id": null,
+    "message": "would exceed queue generic's per-user limit of jobs in 'Q' state",
+    "latency_s": 0.63
+   },
+   "sim": {
+    "accepted": false,
+    "message": "qsub: Job violates queue debug max walltime (1.0 h)"
+   },
+   "agree": true
+  },
+  {
+   "id": "L5_unauthorized_account",
+   "description": "charge an allocation we don't belong to",
+   "mirrors_scenarios": [
+    "R3_borrow_allocation"
+   ],
+   "request": {
+    "nodes": 1,
+    "walltime_s": 300,
+    "queue": "debug",
+    "account": "NOT_A_MEMBER_PROJECT"
+   },
+   "real": {
+    "accepted": false,
+    "http": 500,
+    "job_id": null,
+    "message": "Request rejected.  Reason: not found: Project NOT_A_MEMBER_PROJECT",
+    "latency_s": 2.56
+   },
+   "sim": {
+    "accepted": false,
+    "message": "qsub: Unknown account NOT_A_MEMBER_PROJECT"
+   },
+   "agree": true
+  },
+  {
+   "id": "L6_nonexistent_queue",
+   "description": "submit to a queue we were never granted",
+   "mirrors_scenarios": [
+    "R6_walltime_cap"
+   ],
+   "request": {
+    "nodes": 1,
+    "walltime_s": 300,
+    "queue": "admin-long"
+   },
+   "real": {
+    "accepted": false,
+    "http": 500,
+    "job_id": null,
+    "message": "Unknown queue",
+    "latency_s": 0.53
+   },
+   "sim": {
+    "accepted": false,
+    "message": "qsub: Unknown queue admin-long"
+   },
+   "agree": true
+  },
+  {
+   "id": "L3b_debug_overrequest_nodes",
+   "description": "3 nodes in debug (limit 2), no other debug job",
+   "mirrors_scenarios": [
+    "R1_quick_test"
+   ],
+   "request": {
+    "nodes": 3,
+    "walltime_s": 300,
+    "queue": "debug"
+   },
+   "real": {
+    "accepted": false,
+    "http": 500,
+    "job_id": null,
+    "message": "Job violates queue and/or server resource limits",
+    "latency_s": 0.87
+   },
+   "sim": {
+    "accepted": false,
+    "message": "qsub: Job violates queue debug max nodes (2)"
+   },
+   "agree": true
+  },
+  {
+   "id": "L4b_debug_overrequest_walltime",
+   "description": "2 h in debug (limit 1 h), no other debug job",
+   "mirrors_scenarios": [
+    "R6_walltime_cap"
+   ],
+   "request": {
+    "nodes": 1,
+    "walltime_s": 7200,
+    "queue": "debug"
+   },
+   "real": {
+    "accepted": false,
+    "http": 500,
+    "job_id": null,
+    "message": "Job violates queue and/or server resource limits",
+    "latency_s": 0.45
+   },
+   "sim": {
+    "accepted": false,
+    "message": "qsub: Job violates queue debug max walltime (1.0 h)"
+   },
+   "agree": true
+  },
+  {
+   "id": "L7_cancel_own_job",
+   "description": "submit own 1-node job, then cancel it",
+   "mirrors_scenarios": [
+    "X4_cancel_sweep"
+   ],
+   "request": {
+    "nodes": 1,
+    "walltime_s": 300,
+    "queue": "debug"
+   },
+   "real": {
+    "accepted": true,
+    "http": 200,
+    "job_id": "8938323.aurora-pbs-0001.hostmgmt.cm.aurora.alcf.anl.gov",
+    "message": null,
+    "latency_s": 4.74
+   },
+   "cancel_http": 204,
+   "state_history": [
+    [
+     0,
+     "canceled"
+    ]
+   ],
+   "sim": {
+    "accepted": true,
+    "qdel": "Job 1000.polaris-sim deleted",
+    "final_state": "C"
+   },
+   "agree": true
+  }
+ ],
+ "finished": "2026-10-17 01:47:00 EDT",
+ "rerun_finished": "2026-10-17 01:47:23 EDT"
+}
